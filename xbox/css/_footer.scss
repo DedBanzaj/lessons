@@ -1,0 +1,173 @@
+/*============== ФУТЕР ==========================================*/
+._footer-title {
+    font-weight: bold;
+    color: $orangeColor;
+    letter-spacing: 1px;
+    line-height: calc(18 / 21 * 100%);
+    @include adaptiv-value("font-size", 18, 14, 1);
+    //@include adaptiv-value("margin-top", 58, 30, 1);
+
+    @include adaptiv-value("padding-bottom", 34, 20, 1);
+}
+
+.footer {
+    background-color: #373a3c;
+
+    &__container {
+    }
+
+    &__body {
+        display: flex;
+        @include adaptiv-value("padding-top", 58, 30, 1);
+        @include adaptiv-value("padding-bottom", 60, 40, 1);
+        @media (max-width: $md3 + px) {
+            display: block;
+        }
+    }
+
+    &__menu {
+        flex: 0 1 60%;
+        @media (max-width: $md2 + px) {
+            @include adaptiv-value("margin-bottom", 40, 20, 1);
+        }
+    }
+
+    &__social {
+        //        flex: 0 0 120px;
+        @media (max-width: $md3+px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &_list {
+            display: grid;
+            grid-template-columns: repeat(3, 24px);
+            column-gap: 20px;
+        }
+        &__item {
+            font-size: 20px;
+        }
+
+        & > ._footer-title {
+            padding-bottom: 0;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        color: #ffffff;
+        font-size: 15px;
+        letter-spacing: 1.5px;
+        position: relative;
+        @include adaptiv-value("margin-left", 100, 15, 0);
+        @include adaptiv-value("margin-right", 100, 15, 0);
+        @include adaptiv-value("padding-bottom", 38, 20, 1);
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            @include adaptiv-value("top", -19, -10, 0);
+            height: 1px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: $md4+px) {
+            display: block;
+            text-align: center;
+            font-size: 12px;
+            line-height: 250%;
+        }
+    }
+
+    // .footer__language
+    &__language {
+        color: inherit;
+        &:hover {
+            color: $orangeColor;
+        }
+    }
+
+    // .footer__copyright
+    &__copyright {
+    }
+}
+
+.menu-footer {
+    @media (min-width: $md3 + px) {
+        display: flex;
+        align-items: flex-start;
+    }
+    &__column {
+        @media (min-width: $md3 + px) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 0 0 40%;
+        }
+        @media (max-width: $md2 + px) {
+            &:not(:last-child) {
+                @include adaptiv-value("margin-bottom", 40, 20, 1);
+            }
+        }
+    }
+
+    &__button {
+        background: none;
+        cursor: default;
+        @media (min-width: $md3 + px) {
+            @include adaptiv-value("margin-bottom", 16, 10, 1);
+        }
+        ._init & {
+            display: flex;
+            width: 100%;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            @extend ._icon-down-arrow;
+
+            &::before {
+                transition: all 0.3s ease 0s;
+                @extend ._ic;
+                font-size: 12px;
+            }
+        }
+        &._active {
+            &::before {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__item {
+    }
+
+    &__sublist {
+    }
+}
+
+.sublist-footer {
+    &__item {
+        &:not(:last-child) {
+            @include adaptiv-value("margin-bottom", 16, 10, 1);
+        }
+        @media (max-width: $md3 + px) {
+            padding-top: 15px;
+        }
+    }
+
+    &__link {
+        color: #ffffff;
+        line-height: 120%;
+        font-size: 13px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        transition: color 0.3s ease 0s;
+        &:hover {
+            color: $orangeColor;
+        }
+    }
+}
